@@ -28,7 +28,7 @@ export default function Footer() {
           {/* Column 1: Pinch of Yum */}
           <div>
             <h3 className="text-lg font-bold text-gray-800 mb-4 uppercase tracking-wide">
-              Pinch of Yum
+              ALL RECIPE
             </h3>
             <nav className="flex flex-col space-y-3">
               <FooterText
@@ -153,7 +153,7 @@ export default function Footer() {
 
           {/* Column 3: Newsletter Signup */}
           <div>
-            <div className="bg-gradient-to-r from-purple-700 to-purple-600 rounded-lg p-6 text-white">
+            <div className="bg-gradient-to-r from-[#D54215]  to-red-600 rounded-lg p-6 text-white">
               <h3 className="text-2xl font-bold mb-2">
                 <span className="italic">signup</span> FOR EMAIL UPDATES
               </h3>
@@ -164,12 +164,12 @@ export default function Footer() {
                 <input
                   type="text"
                   placeholder="First Name"
-                  className="w-full px-4 py-3 rounded text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                  className="w-full px-4 py-3 rounded bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 />
                 <input
                   type="email"
                   placeholder="Email"
-                  className="w-full px-4 py-3 rounded text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                  className="w-full px-4 py-3 rounded bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 />
                 <button
                   type="submit"
@@ -188,15 +188,15 @@ export default function Footer() {
               <div className="flex items-center justify-center gap-6">
                 <div className="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center">
                   <span className="text-white text-xs font-bold text-center leading-tight">
-                    FOOD
+                    kerala
                     <br />
-                    BLOGGER
+                    tasty
                     <br />
-                    PRO
+                    recipes
                   </span>
                 </div>
                 <div className="text-gray-800">
-                  <span className="font-bold text-2xl">clariti</span>
+                  <span className="font-bold text-2xl">DailyMeals</span>
                 </div>
               </div>
             </div>
@@ -208,7 +208,7 @@ export default function Footer() {
           {/* Instagram */}
           <a
             href="#"
-            className="w-12 h-12 rounded-full bg-purple-800 hover:bg-purple-700 flex items-center justify-center transition-colors"
+            className="w-12 h-12 rounded-full bg-[#D54215]  hover:bg-red-700 flex items-center justify-center transition-colors"
             aria-label="Instagram"
           >
             <svg
@@ -223,7 +223,7 @@ export default function Footer() {
           {/* Pinterest */}
           <a
             href="#"
-            className="w-12 h-12 rounded-full bg-purple-800 hover:bg-purple-700 flex items-center justify-center transition-colors"
+            className="w-12 h-12 rounded-full bg-[#D54215]  hover:bg-red-700 flex items-center justify-center transition-colors"
             aria-label="Pinterest"
           >
             <svg
@@ -238,7 +238,7 @@ export default function Footer() {
           {/* TikTok */}
           <a
             href="#"
-            className="w-12 h-12 rounded-full bg-purple-800 hover:bg-purple-700 flex items-center justify-center transition-colors"
+            className="w-12 h-12 rounded-full bg-[#D54215]  hover:bg-red-700 flex items-center justify-center transition-colors"
             aria-label="TikTok"
           >
             <svg
@@ -253,7 +253,7 @@ export default function Footer() {
           {/* Facebook */}
           <a
             href="#"
-            className="w-12 h-12 rounded-full bg-purple-800 hover:bg-purple-700 flex items-center justify-center transition-colors"
+            className="w-12 h-12 rounded-full bg-[#D54215]  hover:bg-red-700 flex items-center justify-center transition-colors"
             aria-label="Facebook"
           >
             <svg
@@ -268,7 +268,7 @@ export default function Footer() {
           {/* X (Twitter) */}
           <a
             href="#"
-            className="w-12 h-12 rounded-full bg-purple-800 hover:bg-purple-700 flex items-center justify-center transition-colors"
+            className="w-12 h-12 rounded-full bg-[#D54215]  hover:bg-red-700 flex items-center justify-center transition-colors"
             aria-label="X"
           >
             <svg
@@ -283,7 +283,7 @@ export default function Footer() {
           {/* YouTube */}
           <a
             href="#"
-            className="w-12 h-12 rounded-full bg-purple-800 hover:bg-purple-700 flex items-center justify-center transition-colors"
+            className="w-12 h-12 rounded-full bg-[#D54215]  hover:bg-red-700 flex items-center justify-center transition-colors"
             aria-label="YouTube"
           >
             <svg
@@ -300,11 +300,11 @@ export default function Footer() {
         <div className="mt-12 text-center">
           <div className="mb-4">
             <h2 className="text-4xl font-serif text-gray-800">
-              pinch <span className="italic font-light">of</span> yum
+              allRecipe <span className="italic font-light">of</span> world
             </h2>
           </div>
           <p className="text-gray-600 text-sm mb-1">
-            © 2025 Pinch of Yum. All Rights Reserved.
+            © 2025 allRecipe. All Rights Reserved.
           </p>
           <p className="text-gray-600 text-sm">A Raptive Partner Site.</p>
         </div>

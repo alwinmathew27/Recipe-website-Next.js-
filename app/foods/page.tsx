@@ -196,6 +196,7 @@ const FoodRecipe = () => {
         <div>
             <section className='flex items-center filter-section justify-evenly py-4'>
                 <div>
+                    <Link href="/alwin">ALWINS</Link>
                     <input 
                         className='border border-gray-500 p-2 m-2 rounded' 
                         type="text" 
