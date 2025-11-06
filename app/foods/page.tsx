@@ -117,8 +117,12 @@ const FoodRecipe = () => {
     const searchParams = useSearchParams();
     const searchQuery = searchParams.get("search") || "";
 
+
+
     useEffect(() => {
-        fetch("https://dummyjson.com/recipes")
+        fetch("https://dummyjson.com/recipes", {
+             next: { revalidate: 300 }, // cache for 1 minute
+                })
             .then((res) => res.json())
             .then((data) => {
                 setFiltereddata(data.recipes)
