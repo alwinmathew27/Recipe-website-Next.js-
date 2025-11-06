@@ -324,7 +324,6 @@ export default function Footer() {
             Terms
           </Link>
         </div>
-
         {/* Privacy Notice */}
         <div className="mt-8 text-center text-xs text-gray-500 max-w-2xl mx-auto space-y-2">
           <p>
