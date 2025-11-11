@@ -80,7 +80,7 @@ const Header = () => {
                         <Link href="/Recipes">Cuisines</Link>
                         <Link href="/Recipes">Kitchen Tips</Link>
                         <Link href="/Recipes">News</Link>
-                        <Link href="/Recipes">Features</Link>
+                        {/* <Link href="/Recipes">Features</Link> */}
                     </nav>
                     <div>
                         <ul>
