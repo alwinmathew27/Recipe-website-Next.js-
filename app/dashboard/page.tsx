@@ -14,7 +14,6 @@
 
 
 "use client";
-
 import { useSession, signOut } from "next-auth/react";
 
 const DashboardPage = () => {
@@ -26,7 +25,7 @@ const DashboardPage = () => {
         <h2 className="text-3xl font-bold text-green-600 mb-4">
           Welcome to your Dashboard
         </h2>
-
+    
         {session ? (
           <>
             <p className="mb-4 text-gray-700">
@@ -46,5 +45,4 @@ const DashboardPage = () => {
     </section>
   );
 };
-
 export default DashboardPage;

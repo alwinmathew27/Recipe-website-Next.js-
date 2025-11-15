@@ -117,8 +117,6 @@ const FoodRecipe = () => {
     const searchParams = useSearchParams();
     const searchQuery = searchParams.get("search") || "";
 
-
-
     useEffect(() => {
         fetch("https://dummyjson.com/recipes", {
              next: { revalidate: 300 }, // cache for 1 minute
@@ -194,9 +192,8 @@ const FoodRecipe = () => {
 
     return (
         <div>
-            <section className='flex items-center filter-section justify-evenly py-4'>
-                <div>
-                    <Link href="/alwin">ALWINS</Link>
+            <section className='flex items-center filter-section justify-evenly flex-wrap py-4'>
+                <div className='sm:block hidden'>
                     <input 
                         className='border border-gray-500 p-2 m-2 rounded' 
                         type="text" 
@@ -211,7 +208,7 @@ const FoodRecipe = () => {
                         Search
                     </button>
                 </div>
-                <div>
+                <div className='sm:block hidden'>
                     <button 
                         className='px-4 py-2 bg-orange-600 text-white cursor-pointer font-bold border border-gray-900 rounded hover:bg-orange-700' 
                         onClick={Topratedrecipes}
