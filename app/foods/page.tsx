@@ -218,7 +218,7 @@ const FoodRecipe = () => {
                 </div>
             </section>
 
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-4 gap-6 pb-8'>
+            <div className='grid max-[360px]:grid-cols-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 mx-4 gap-6 pb-8'>
                 {filtereddata.map((res) => (
                     <Link 
                         href={`/foods/${res.id}`} 
@@ -234,7 +234,7 @@ const FoodRecipe = () => {
                                 />
                             </div>
                             <div className='p-4'>
-                                <h2 className='font-bold text-lg mb-2 text-gray-800 line-clamp-2'>
+                                <h2 className='font-bold md:text-lg text-sm mb-2 text-gray-800 line-clamp-2'>
                                     {res.name}
                                 </h2>
                                 <p className='text-sm text-gray-600 mb-2'>
