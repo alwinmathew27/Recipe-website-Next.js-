@@ -76,7 +76,6 @@ export default function RecipeDetailPage() {
                 >
                     <span>←</span> Back to Recipes
                 </button>
-
                 <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                     {/* Recipe Image */}
                     <div className="relative h-96 w-full">
@@ -86,7 +85,6 @@ export default function RecipeDetailPage() {
                             className="w-full h-full object-cover"
                         />
                     </div>
-
                     <div className="p-8">
                         {/* Recipe Header */}
                         <div className="mb-6">
@@ -105,7 +103,6 @@ export default function RecipeDetailPage() {
                                 </span>
                             </div>
                         </div>
-
                         {/* Quick Info Cards */}
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                             <div className="bg-amber-50 p-4 rounded-lg text-center">

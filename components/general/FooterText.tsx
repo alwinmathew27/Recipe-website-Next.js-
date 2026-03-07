@@ -1,16 +1,4 @@
-// import React from "react";
-// import Link from "next/link";
 
-// const FooterText = ({ text }: { text: string }) => {
-//   return (
-//     <div>
-//       <Link href="#" >
-//         {text}
-//       </Link>
-//     </div>
-//   );
-// };
-// export default FooterText;
 import React from "react";
 import Link from "next/link";
 

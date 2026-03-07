@@ -103,31 +103,361 @@
 // }
 // export default FoodRecipe
 
-"use client"
-import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
-import ShimmerCard from '@/components/general/Shimmer'
-import useOnlineStatus from '@/hooks/useOnlineStatus'
+// "use client"
+// import React, { useState, useEffect } from 'react'
+// import Link from 'next/link'
+// import ShimmerCard from '@/components/general/Shimmer'
+// import useOnlineStatus from '@/hooks/useOnlineStatus'
+// import { useSearchParams } from "next/navigation";
+
+// const FoodRecipe = () => {
+//     const [fetchdata, setFetchdata] = useState([])
+//     const [filtereddata, setFiltereddata] = useState([])
+//     const [searchText, setSearchText] = useState("")
+//     const searchParams = useSearchParams();
+//     const searchQuery = searchParams.get("search") || "";
+
+//     useEffect(() => {
+//         fetch("https://dummyjson.com/recipes", {
+//              next: { revalidate: 300 }, // cache for 1 minute
+//                 })
+//             .then((res) => res.json())
+//             .then((data) => {
+//                 setFiltereddata(data.recipes)
+//                 setFetchdata(data.recipes)
+//               if (searchQuery) {
+//           const searchResult = data.recipes.filter((res) =>
+//             res?.name?.toLowerCase().includes(searchQuery.toLowerCase())
+//           );
+//           setFiltereddata(searchResult);
+//         } else {
+//           setFiltereddata(data.recipes);
+//         }
+//       });
+//   }, [searchQuery]);
+//     const Topratedrecipes = () => {
+//         const filteredrecipes = fetchdata.filter((res) => res?.rating > 4.8);
+//         setFiltereddata(filteredrecipes)
+//     }
+    
+//     const handleSearch = () => {
+//         const searchResult = fetchdata.filter((res) =>
+//             res?.name?.toLowerCase().includes(searchText.toLowerCase())
+//         );
+//         setFiltereddata(searchResult)
+//     }
+    
+//     const handleBackToSearch = () => {
+//         setFiltereddata(fetchdata);
+//         setSearchText("");
+//     }
+
+//     const onlineStatus = useOnlineStatus();
+    
+//     if (onlineStatus === false) {
+//         return (
+//             <h2 className='text-4xl text-center mt-10'>
+//                 You are offline. Look like no internet connection.. !
+//             </h2>
+//         )
+//     }
+
+//     if (fetchdata.length === 0) {
+//         return (
+//             <div className="grid grid-cols-4 gap-6 p-4">
+//                 {[...Array(12)].map((_, index) => (
+//                     <ShimmerCard key={index} />
+//                 ))}
+//             </div>
+//         );
+//     }
+
+//     if (filtereddata.length === 0) {
+//         return (
+//             <div className="h-[200px] w-full flex flex-col justify-start items-start p-4">
+//                 <button
+//                     onClick={handleBackToSearch}
+//                     className="p-2 border border-gray-900 bg-amber-100 hover:bg-gray-300 cursor-pointer"
+//                 >
+//                     Click Back to Search
+//                 </button>
+//                 <div className="flex-grow flex items-center justify-center w-full">
+//                     <h2 className="text-4xl">No item found</h2>
+//                 </div>
+//             </div>
+//         );
+//     }
+
+//     return (
+//         <div>
+//             <section className='flex items-center filter-section justify-evenly flex-wrap py-4'>
+//                 <div className='sm:block hidden'>
+//                     <input
+//                         className='border border-gray-500 p-2 m-2 rounded'
+//                         type="text"
+//                         value={searchText}
+//                         onChange={(e) => setSearchText(e.target.value)}
+//                         placeholder='Search Recipes'
+//                     />
+//                     <button
+//                         onClick={handleSearch}
+//                         className='px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700'
+//                     >
+//                         Search
+//                     </button>
+//                 </div>
+//                 <div className='sm:block hidden'>
+//                     <button
+//                         className='px-4 py-2 bg-orange-600 text-white cursor-pointer font-bold border border-gray-900 rounded hover:bg-orange-700'
+//                         onClick={Topratedrecipes}
+//                     >
+//                         Top Rated Recipes
+//                     </button>
+//                 </div>
+//             </section>
+
+//             <div className='grid max-[360px]:grid-cols-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-3  lg:grid-cols-4 mx-4 gap-4 pb-4'>
+//                 {filtereddata.map((res) => (
+//                     <Link
+//                         href={`/foods/${res.id}`}
+//                         key={res.id}
+//                         className='block'
+//                     >
+//                         <div className='border p-8  border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer hover:bg-gray-300 hover:scale-105 bg-white'>
+//                             <div className='relative h-64 w-full '>
+//                                 <img
+//                                     src={res.image}
+//                                     alt={res.name}
+//                                     className='w-full h-full object-cover rounded-md'
+//                                 />
+//                             </div>
+//                             <div className=' text-center p-2 mt-2'>
+//                                 <h2 className='font-bold md:text-lg text-sm mb-2 text-gray-800 line-clamp-2'>
+//                                     {res.name}
+//                                 </h2>
+//                                 <p className='text-sm text-gray-600 mb-2'>
+//                                     🍴 {res.mealType.join(", ")} | ⏰ {res.prepTimeMinutes} mins
+//                                 </p>
+//                                 <p className='text-sm text-gray-700'>
+//                                     <strong>Rating: </strong> ⭐ {res.rating} ({res.reviewCount} reviews)
+//                                 </p>
+//                             </div>
+//                         </div>
+//                     </Link>
+//                 ))}
+//             </div>
+//         </div>
+//     )
+// }
+// export default FoodRecipe
+
+// -----------------------------------------------
+
+// "use client";
+
+// import React, { useState, useEffect } from "react";
+// import Link from "next/link";
+// import ShimmerCard from "@/components/general/Shimmer";
+// import useOnlineStatus from "@/hooks/useOnlineStatus";
+// import { useSearchParams } from "next/navigation";
+
+// type Recipe = {
+//   id: number;
+//   name: string;
+//   image: string;
+//   rating: number;
+//   reviewCount: number;
+//   prepTimeMinutes: number;
+//   mealType: string[];
+// };
+
+// const FoodRecipe = () => {
+//   const [fetchdata, setFetchdata] = useState<Recipe[]>([]);
+//   const [filtereddata, setFiltereddata] = useState<Recipe[]>([]);
+//   const [searchText, setSearchText] = useState("");
+
+//   const searchParams = useSearchParams();
+//   const searchQuery = searchParams.get("search") || "";
+
+//   useEffect(() => {
+//     fetch("https://dummyjson.com/recipes", {
+//       next: { revalidate: 300 },
+//     })
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setFetchdata(data.recipes);
+
+//         if (searchQuery) {
+//           const searchResult = data.recipes.filter((res: Recipe) =>
+//             res.name.toLowerCase().includes(searchQuery.toLowerCase())
+//           );
+//           setFiltereddata(searchResult);
+//         } else {
+//           setFiltereddata(data.recipes);
+//         }
+//       });
+//   }, [searchQuery]);
+
+//   const Topratedrecipes = () => {
+//     const filteredrecipes = fetchdata.filter(
+//       (res: Recipe) => res.rating > 4.8
+//     );
+//     setFiltereddata(filteredrecipes);
+//   };
+
+//   const handleSearch = () => {
+//     const searchResult = fetchdata.filter((res: Recipe) =>
+//       res.name.toLowerCase().includes(searchText.toLowerCase())
+//     );
+//     setFiltereddata(searchResult);
+//   };
+
+//   const handleBackToSearch = () => {
+//     setFiltereddata(fetchdata);
+//     setSearchText("");
+//   };
+
+//   const onlineStatus = useOnlineStatus();
+
+//   if (onlineStatus === false) {
+//     return (
+//       <h2 className="text-4xl text-center mt-10">
+//         You are offline. Look like no internet connection.. !
+//       </h2>
+//     );
+//   }
+
+//   if (fetchdata.length === 0) {
+//     return (
+//       <div className="grid grid-cols-4 gap-6 p-4">
+//         {[...Array(12)].map((_, index) => (
+//           <ShimmerCard key={index} />
+//         ))}
+//       </div>
+//     );
+//   }
+
+//   if (filtereddata.length === 0) {
+//     return (
+//       <div className="h-[200px] w-full flex flex-col justify-start items-start p-4">
+//         <button
+//           onClick={handleBackToSearch}
+//           className="p-2 border border-gray-900 bg-amber-100 hover:bg-gray-300 cursor-pointer"
+//         >
+//           Click Back to Search
+//         </button>
+
+//         <div className="flex-grow flex items-center justify-center w-full">
+//           <h2 className="text-4xl">No item found</h2>
+//         </div>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div>
+//       <section className="flex items-center filter-section justify-evenly flex-wrap py-4">
+//         <div className="sm:block hidden">
+//           <input
+//             className="border border-gray-500 p-2 m-2 rounded"
+//             type="text"
+//             value={searchText}
+//             onChange={(e) => setSearchText(e.target.value)}
+//             placeholder="Search Recipes"
+//           />
+
+//           <button
+//             onClick={handleSearch}
+//             className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+//           >
+//             Search
+//           </button>
+//         </div>
+
+//         <div className="sm:block hidden">
+//           <button
+//             className="px-4 py-2 bg-orange-600 text-white cursor-pointer font-bold border border-gray-900 rounded hover:bg-orange-700"
+//             onClick={Topratedrecipes}
+//           >
+//             Top Rated Recipes
+//           </button>
+//         </div>
+//       </section>
+
+//       <div className="grid max-[360px]:grid-cols-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 mx-4 gap-4 pb-4">
+//         {filtereddata.map((res: Recipe) => (
+//           <Link href={`/foods/${res.id}`} key={res.id} className="block">
+//             <div className="border p-8 border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer hover:bg-gray-300 hover:scale-105 bg-white">
+              
+//               <div className="relative h-64 w-full">
+//                 <img
+//                   src={res.image}
+//                   alt={res.name}
+//                   className="w-full h-full object-cover rounded-md"
+//                 />
+//               </div>
+
+//               <div className="text-center p-2 mt-2">
+//                 <h2 className="font-bold md:text-lg text-sm mb-2 text-gray-800 line-clamp-2">
+//                   {res.name}
+//                 </h2>
+
+//                 <p className="text-sm text-gray-600 mb-2">
+//                   🍴 {res.mealType.join(", ")} | ⏰ {res.prepTimeMinutes} mins
+//                 </p>
+
+//                 <p className="text-sm text-gray-700">
+//                   <strong>Rating: </strong> ⭐ {res.rating} ({res.reviewCount} reviews)
+//                 </p>
+//               </div>
+
+//             </div>
+//           </Link>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default FoodRecipe;
+
+// ----------------------------------------------
+
+"use client";
+
+import React, { useState, useEffect, Suspense } from "react";
+import Link from "next/link";
+import ShimmerCard from "@/components/general/Shimmer";
+import useOnlineStatus from "@/hooks/useOnlineStatus";
 import { useSearchParams } from "next/navigation";
 
-const FoodRecipe = () => {
-    const [fetchdata, setFetchdata] = useState([])
-    const [filtereddata, setFiltereddata] = useState([])
-    const [searchText, setSearchText] = useState("")
-    const searchParams = useSearchParams();
-    const searchQuery = searchParams.get("search") || "";
+type Recipe = {
+  id: number;
+  name: string;
+  image: string;
+  rating: number;
+  reviewCount: number;
+  prepTimeMinutes: number;
+  mealType: string[];
+};
 
-    useEffect(() => {
-        fetch("https://dummyjson.com/recipes", {
-             next: { revalidate: 300 }, // cache for 1 minute
-                })
-            .then((res) => res.json())
-            .then((data) => {
-                setFiltereddata(data.recipes)
-                setFetchdata(data.recipes)
-              if (searchQuery) {
-          const searchResult = data.recipes.filter((res) =>
-            res?.name?.toLowerCase().includes(searchQuery.toLowerCase())
+const FoodRecipeClient = () => {
+  const [fetchdata, setFetchdata] = useState<Recipe[]>([]);
+  const [filtereddata, setFiltereddata] = useState<Recipe[]>([]);
+  const [searchText, setSearchText] = useState("");
+
+  const searchParams = useSearchParams();
+  const searchQuery = searchParams.get("search") || "";
+
+  useEffect(() => {
+    fetch("https://dummyjson.com/recipes")
+      .then((res) => res.json())
+      .then((data) => {
+        setFetchdata(data.recipes);
+
+        if (searchQuery) {
+          const searchResult = data.recipes.filter((res: Recipe) =>
+            res.name.toLowerCase().includes(searchQuery.toLowerCase())
           );
           setFiltereddata(searchResult);
         } else {
@@ -135,120 +465,132 @@ const FoodRecipe = () => {
         }
       });
   }, [searchQuery]);
-    
-    
-    const Topratedrecipes = () => {
-        const filteredrecipes = fetchdata.filter((res) => res?.rating > 4.8);
-        setFiltereddata(filteredrecipes)
-    }
-    
-    const handleSearch = () => {
-        const searchResult = fetchdata.filter((res) => 
-            res?.name?.toLowerCase().includes(searchText.toLowerCase())
-        );
-        setFiltereddata(searchResult)
-    }
-    
-    const handleBackToSearch = () => {
-        setFiltereddata(fetchdata);
-        setSearchText("");
-    }
 
-    const onlineStatus = useOnlineStatus();
-    
-    if (onlineStatus === false) {
-        return (
-            <h2 className='text-4xl text-center mt-10'>
-                You are offline. Look like no internet connection.. !
-            </h2>
-        )
-    }
+  const Topratedrecipes = () => {
+    const filteredrecipes = fetchdata.filter((res) => res.rating > 4.8);
+    setFiltereddata(filteredrecipes);
+  };
 
-    if (fetchdata.length === 0) {
-        return (
-            <div className="grid grid-cols-4 gap-6 p-4">
-                {[...Array(12)].map((_, index) => (
-                    <ShimmerCard key={index} />
-                ))}
-            </div>
-        );
-    }
+  const handleSearch = () => {
+    const searchResult = fetchdata.filter((res) =>
+      res.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setFiltereddata(searchResult);
+  };
 
-    if (filtereddata.length === 0) {
-        return (
-            <div className="h-[200px] w-full flex flex-col justify-start items-start p-4">
-                <button
-                    onClick={handleBackToSearch}
-                    className="p-2 border border-gray-900 bg-amber-100 hover:bg-gray-300 cursor-pointer"
-                >
-                    Click Back to Search
-                </button>
-                <div className="flex-grow flex items-center justify-center w-full">
-                    <h2 className="text-4xl">No item found</h2>
-                </div>
-            </div>
-        );
-    }
+  const handleBackToSearch = () => {
+    setFiltereddata(fetchdata);
+    setSearchText("");
+  };
 
+  const onlineStatus = useOnlineStatus();
+
+  if (!onlineStatus) {
     return (
-        <div>
-            <section className='flex items-center filter-section justify-evenly flex-wrap py-4'>
-                <div className='sm:block hidden'>
-                    <input 
-                        className='border border-gray-500 p-2 m-2 rounded' 
-                        type="text" 
-                        value={searchText}
-                        onChange={(e) => setSearchText(e.target.value)}
-                        placeholder='Search Recipes'
-                    />
-                    <button 
-                        onClick={handleSearch}
-                        className='px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700'
-                    >
-                        Search
-                    </button>
-                </div>
-                <div className='sm:block hidden'>
-                    <button 
-                        className='px-4 py-2 bg-orange-600 text-white cursor-pointer font-bold border border-gray-900 rounded hover:bg-orange-700' 
-                        onClick={Topratedrecipes}
-                    >
-                        Top Rated Recipes
-                    </button>
-                </div>
-            </section>
+      <h2 className="text-4xl text-center mt-10">
+        You are offline. Looks like no internet connection!
+      </h2>
+    );
+  }
 
-            <div className='grid max-[360px]:grid-cols-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 mx-4 gap-6 pb-8'>
-                {filtereddata.map((res) => (
-                    <Link 
-                        href={`/foods/${res.id}`} 
-                        key={res.id}
-                        className='block'
-                    >
-                        <div className='border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-105 bg-white'>
-                            <div className='relative h-48 w-full'>
-                                <img 
-                                    src={res.image} 
-                                    alt={res.name}
-                                    className='w-full h-full object-cover'
-                                />
-                            </div>
-                            <div className='p-4'>
-                                <h2 className='font-bold md:text-lg text-sm mb-2 text-gray-800 line-clamp-2'>
-                                    {res.name}
-                                </h2>
-                                <p className='text-sm text-gray-600 mb-2'>
-                                    🍴 {res.mealType.join(", ")} | ⏰ {res.prepTimeMinutes} mins
-                                </p>
-                                <p className='text-sm text-gray-700'>
-                                    <strong>Rating: </strong> ⭐ {res.rating} ({res.reviewCount} reviews)
-                                </p>
-                            </div>
-                        </div>
-                    </Link>
-                ))}
-            </div>
+  if (fetchdata.length === 0) {
+    return (
+      <div className="grid grid-cols-4 gap-6 p-4">
+        {[...Array(12)].map((_, index) => (
+          <ShimmerCard key={index} />
+        ))}
+      </div>
+    );
+  }
+
+  if (filtereddata.length === 0) {
+    return (
+      <div className="h-[200px] w-full flex flex-col p-4">
+        <button
+          onClick={handleBackToSearch}
+          className="p-2 border border-gray-900 bg-amber-100 hover:bg-gray-300"
+        >
+          Click Back to Search
+        </button>
+
+        <div className="flex-grow flex items-center justify-center w-full">
+          <h2 className="text-4xl">No item found</h2>
         </div>
-    )
-}
-export default FoodRecipe
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <section className="flex items-center justify-evenly flex-wrap py-4">
+        <div className="sm:block hidden">
+          <input
+            className="border border-gray-500 p-2 m-2 rounded"
+            type="text"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            placeholder="Search Recipes"
+          />
+
+          <button
+            onClick={handleSearch}
+            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          >
+            Search
+          </button>
+        </div>
+
+        <div className="sm:block hidden">
+          <button
+            className="px-4 py-2 bg-orange-600 text-white font-bold border border-gray-900 rounded hover:bg-orange-700"
+            onClick={Topratedrecipes}
+          >
+            Top Rated Recipes
+          </button>
+        </div>
+      </section>
+
+      <div className="grid max-[360px]:grid-cols-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 mx-4 gap-4 pb-4">
+        {filtereddata.map((res) => (
+          <Link href={`/foods/${res.id}`} key={res.id} className="block">
+            <div className="border p-8 border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer hover:bg-gray-300 hover:scale-105 bg-white">
+
+              <div className="relative h-64 w-full">
+                <img
+                  src={res.image}
+                  alt={res.name}
+                  className="w-full h-full object-cover rounded-md"
+                />
+              </div>
+
+              <div className="text-center p-2 mt-2">
+                <h2 className="font-bold md:text-lg text-sm mb-2 text-gray-800 line-clamp-2">
+                  {res.name}
+                </h2>
+
+                <p className="text-sm text-gray-600 mb-2">
+                  🍴 {res.mealType.join(", ")} | ⏰ {res.prepTimeMinutes} mins
+                </p>
+
+                <p className="text-sm text-gray-700">
+                  ⭐ {res.rating} ({res.reviewCount} reviews)
+                </p>
+              </div>
+
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const FoodRecipe = () => {
+  return (
+    <Suspense fallback={<div className="p-10 text-center">Loading recipes...</div>}>
+      <FoodRecipeClient />
+    </Suspense>
+  );
+};
+
+export default FoodRecipe;

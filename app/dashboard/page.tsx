@@ -15,10 +15,8 @@
 
 "use client";
 import { useSession, signOut } from "next-auth/react";
-
 const DashboardPage = () => {
   const { data: session } = useSession();
-
   return (
     <section className="flex flex-col items-center justify-center h-screen bg-gray-100">
       <div className="bg-white p-10 rounded-xl shadow-md text-center">
