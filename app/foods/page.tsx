@@ -495,7 +495,7 @@ const FoodRecipeClient = () => {
 
   if (fetchdata.length === 0) {
     return (
-      <div className="grid grid-cols-4 gap-6 p-4">
+      <div className="grid max-[360px]:grid-cols-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
         {[...Array(12)].map((_, index) => (
           <ShimmerCard key={index} />
         ))}
@@ -553,9 +553,9 @@ const FoodRecipeClient = () => {
       <div className="grid max-[360px]:grid-cols-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 mx-4 gap-4 pb-4">
         {filtereddata.map((res) => (
           <Link href={`/foods/${res.id}`} key={res.id} className="block">
-            <div className="border p-8 border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer hover:bg-gray-300 hover:scale-105 bg-white">
+            <div className="border p-2 sm:p-4 border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer hover:bg-gray-300 hover:scale-105 bg-white">
 
-              <div className="relative h-64 w-full">
+              <div className="relative h-36 sm:h-48 md:h-56 lg:h-64 w-full">
                 <img
                   src={res.image}
                   alt={res.name}
