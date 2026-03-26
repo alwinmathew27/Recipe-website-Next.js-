@@ -8,7 +8,7 @@ const Banner = () => {
 
   const slides = [
     {
-      title: "Authentic Italian Pasta",
+      title: "alwin",
       subtitle: "Discover the secrets of traditional Italian cuisine",
       gradient: "from-orange-500 to-red-600",
       emoji: "🍝",
@@ -139,8 +139,8 @@ const Banner = () => {
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
-                ? "bg-white w-8"
-                : "bg-white/50 hover:bg-white/75"
+              ? "bg-white w-8"
+              : "bg-white/50 hover:bg-white/75"
               }`}
             aria-label={`Go to slide ${index + 1}`}
           />
