@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { SessionProvider } from "next-auth/react";
+import SessionProviderWrapper from "@/components/providers/SessionProviderWrapper";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -24,13 +24,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-          <SessionProvider>
+          <SessionProviderWrapper>
             <Header />
             <main className="min-h-screen">
                     {children}
                 </main>
             <Footer/>
-          </SessionProvider>
+          </SessionProviderWrapper>
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-import { auth } from "./auth";
+import { auth } from "@/auth";
 import { NextResponse } from "next/server";
 
 export default auth((req) => {
@@ -19,6 +19,6 @@ export default auth((req) => {
 
 export const config = {
     matcher: [
-        "/((?!api|_next/static|_next/image|favicon.ioc|.*\\.png$).*)",
+        "/((?!api|_next/static|_next/image|favicon.ico|.*\\.png$).*)",
     ],
 };
